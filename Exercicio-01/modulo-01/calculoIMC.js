@@ -7,28 +7,33 @@ Versão: 1.0
 
 const calcularIMC = function(peso, altura){
 
-    let resultado = peso / (altura * altura)
+    let peso1 = Number(peso)
+    let altura2 = Number(altura)
+
+    let resultado = peso1 / (altura2 * altura2)
+    let statusUsuario 
 
     if (resultado < 18.5){
-        console.log("Status: Abaixo do peso");
+        statusUsuario = "Status: Abaixo do peso"
 
     } else if (resultado >= 18.5 && resultado < 24.9) {
-        console.log("Status: Peso Normmal")
+        statusUsuario = "Status: Peso Normmal"
 
     } else if (resultado >= 25.0 && resultado < 29.9) {
-        console.log("Status: Acima do peso(sobrepeso)")
+        statusUsuario = "Status: Acima do peso(sobrepeso)"
 
     } else if (resultado >= 30.0 && resultado < 34.9) {
-        console.log("Status: Obesidade 1");
+        statusUsuario = "Status: Obesidade 1"
 
     } else if (resultado >= 35.0 && resultado < 39.9) {
-        console.log("Status: Obesidade 2")
+        statusUsuario = "Status: Obesidade 2"
 
     } else {
-        console.log("Status: Obesidade 3")
-
+        statusUsuario = "Status: Obesidade 3"
     }
+    return statusUsuario
     
 }
 
-calcularIMC(70, 1.80)
+// calcularIMC(70, 1.80)
+module.exports = {calcularIMC}
