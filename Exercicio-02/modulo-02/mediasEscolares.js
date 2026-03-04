@@ -1,69 +1,77 @@
-/*
-Objetivo:   Arquivo responsavel pelo CALCULO de medias esolares e 
-            ANALISE DO STATUS do aluno
-Data: 27/02/26
-Autor: Leandro
-Versão: 1.0
-*/
 
-// function calcularMedia(valor1, valor2, valor3, valor4){
+function calcularMedia(n1, n2, n3, n4){
+    return (n1 + n2 + n3 + n4) / 4
+}
 
+function analisarAluno(n1, n2, n3, n4, notaExame = null){
 
-//     let nota1 = Number(valor1)
-//     let nota2 = Number(valor2)
-//     let nota3 = Number(valor3)
-//     let nota4 = Number(valor4)
+    let media = calcularMedia(n1, n2, n3, n4)
+    let status = ""
+    let mediaFinalExame = null
 
-//     let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4))/4
+    if(media >= 70){
+        status = "Aprovado"
+    } 
+    else if(media < 50){
+        status = "Reprovado"
+    } 
+    else {
+        status = "Exame"
 
-//     //return media
-//     console.log(media)
-//     // return nota1 , nota2 , nota3, nota4, media
+        if(notaExame !== null){
+            mediaFinalExame = (media + notaExame) / 2
 
-// }
-
-function analiseStatusAluno(mediaAluno) {
-    
-    Number(mediaAluno)
-    
-    let statusAluno
-
-    if (mediaAluno > 69.99) {
-        statusAluno = "Aprovado"
-        
-    } else if (mediaAluno < 50) {
-        statusAluno = "Reprovado"
-
-    } else if (mediaAluno <= 69.99 && mediaAluno > 50) {
-        statusAluno = "Exame"
-
-    } else {
-        return false
+            if(mediaFinalExame >= 60){
+                status = "Aprovado no Exame"
+            } else {
+                status = "Reprovado no Exame"
+            }
+        }
     }
-    return statusAluno
 
-
+    return {
+        media,
+        status,
+        mediaFinalExame
+    }
 }
 
-function printRelatorio(statusAluno1){
+function printRelatorio(nomeAluno, sexoAluno, nomeProfessor, sexoProfessor, curso, disciplina, n1, n2, n3, n4, notaExame = null){
 
-    let nota1 = 3
-    let nota2 = 3
-    let nota3 = 3
-    let nota4 = 3
+    let resultado = analisarAluno(n1, n2, n3, n4, notaExame)
 
-    let calculo = require('./modulo-02/mediasEscolares')
-    let media = calculo.calcularMedia(nota1, nota2, nota3, nota4)
+    let palavraAluno = sexoAluno === "F" ? "A aluna" : "O aluno"
+    let palavraProfessor = sexoProfessor === "F" ? "Professora" : "Professor"
 
-    
-    if(statusAluno1 == "Exame"){
-        console.log(`O aluno [ xxxxxx ] foi [aprovado] na disciplina [ xxxxxxxx ]. Curso: xxxxxxxx Professor: xxxxxxxx Notas do aluno: Nota1, Nota2, Nota3, Nota4, Nota do Exame Média Final: ${media} Média final do Exame: xxxx`)}
+    console.log("\n===== RELATÓRIO =====\n")
+    console.log(`${palavraAluno} ${nomeAluno} foi ${resultado.status} na disciplina ${disciplina}.`)
+    console.log(`Curso: ${curso}`)
+    console.log(`${palavraProfessor}: ${nomeProfessor}`)
+    console.log(`Notas: ${n1}, ${n2}, ${n3}, ${n4}${notaExame !== null ? ", " + notaExame : ""}`)
+    console.log(`Média Final: ${resultado.media.toFixed(2)}`)
 
+    if(resultado.mediaFinalExame !== null){
+        console.log(`Média Final do Exame: ${resultado.mediaFinalExame.toFixed(2)}`)
+    }
 }
 
-//  calcularMedia(10,10,10,9)
-azul = analiseStatusAluno(100)
-console.log(azul)
-// printRelatorio("Exame")
+// printRelatorio(
+//     "Leandro",
+//     "M",
+//     "Carla",
+//     "F",
+//     "Engenharia",
+//     "Algoritmos",
+//     80, 75, 90, 85
+// )
 
-// module.exports = {analiseStatusAluno, calcularMedia, printRelatorio}
+printRelatorio(
+    "Ana",
+    "F",
+    "Carlos",
+    "M",
+    "Direito",
+    "Processo Civil",
+    60, 55, 58, 62,
+    80
+)
