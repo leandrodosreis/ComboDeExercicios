@@ -15,6 +15,7 @@ const entradaDeDados = readline.createInterface({
 
 })
 
+console.log(`==================================\nBem vindo ao calculo do seu IMC\n==================================`)
 entradaDeDados.question("Digite o seu peso: ", function(peso){
 
     entradaDeDados.question("Digite o sua altura: ", function(altura){
@@ -23,7 +24,7 @@ entradaDeDados.question("Digite o seu peso: ", function(peso){
 
         if(verificacaoValidacao){
             let calcular = calcularIMC.calcularIMC(peso, altura)
-            console.log(calcular)
+            console.log(`==================================\n${calcular}\n==================================`)
             entradaDeDados.close()
             
         }else{

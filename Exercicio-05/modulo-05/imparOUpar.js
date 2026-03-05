@@ -7,7 +7,11 @@ Versão: 1.0
 
 const imparesEPares = function(valorInicial, valorFinal){
 
-    
+    while(valorInicial < valorFinal){
+        valorInicial + 2
+        valorFinal = valorInicial + 1
+
+    }
 
 }
 

@@ -14,22 +14,22 @@ const calcularIMC = function(peso, altura){
     let statusUsuario 
 
     if (resultado < 18.5){
-        statusUsuario = "Status: Abaixo do peso"
+        statusUsuario = `Seu IMC é ${resultado.toFixed(2)} \nStatus: Abaixo do peso`
 
     } else if (resultado >= 18.5 && resultado < 24.9) {
-        statusUsuario = "Status: Peso Normmal"
+        statusUsuario = `Seu IMC é ${resultado.toFixed(2)} \nStatus: Peso Normmal`
 
     } else if (resultado >= 25.0 && resultado < 29.9) {
-        statusUsuario = "Status: Acima do peso(sobrepeso)"
+        statusUsuario = `Seu IMC é ${resultado.toFixed(2)} \nStatus:  Acima do peso(sobrepeso)`
 
     } else if (resultado >= 30.0 && resultado < 34.9) {
-        statusUsuario = "Status: Obesidade 1"
+        statusUsuario = `Seu IMC é ${resultado.toFixed(2)} \nStatus:  Obesidade 1`
 
     } else if (resultado >= 35.0 && resultado < 39.9) {
-        statusUsuario = "Status: Obesidade 2"
+        statusUsuario = `Seu IMC é ${resultado.toFixed(2)} \nStatus:  Obesidade 2`
 
     } else {
-        statusUsuario = "Status: Obesidade 3"
+        statusUsuario = `Seu IMC é ${resultado.toFixed(2)} \nStatus:  Obesidade 3`
     }
     return statusUsuario
     

@@ -10,7 +10,6 @@ const calcularFatorial = function (numero){
     let fatorial = 1
     let numero1 = numero
     let x 
-    // console.log(fatorial)
 
     for(x = 1; x <= numero1; x++){
 
