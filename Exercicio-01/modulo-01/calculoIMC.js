@@ -6,9 +6,9 @@ Versão: 1.0
 */
 
 const calcularIMC = function(peso, altura){
-
-    let peso1 = Number(peso)
-    let altura2 = Number(altura)
+    
+    let peso1 = Number(peso.replace(",", "."))
+    let altura2 = Number(altura.replace(",", "."))
 
     let resultado = peso1 / (altura2 * altura2)
     let statusUsuario 

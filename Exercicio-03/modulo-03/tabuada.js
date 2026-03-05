@@ -24,4 +24,5 @@ const calcularTabuada = function(tabInicial, tabFinal, contInicial, contFinal){
     }
 }
 
-calcularTabuada(2, 3, 0, 2)
+// calcularTabuada(2, 3, 0, 2)
+module.exports = {calcularTabuada}

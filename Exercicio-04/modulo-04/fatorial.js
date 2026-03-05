@@ -22,4 +22,5 @@ const calcularFatorial = function (numero){
 
 }
 
-calcularFatorial(5)
+// calcularFatorial(5)
+module.exports = {calcularFatorial}

@@ -24,6 +24,7 @@ entradaDeDados.question("Digite o seu peso: ", function(peso){
         if(verificacaoValidacao){
             let calcular = calcularIMC.calcularIMC(peso, altura)
             console.log(calcular)
+            entradaDeDados.close()
             
         }else{
             return false
