@@ -1,3 +1,10 @@
+/*
+Objetivo: Arquivo responsavel SOMENTE pelas entradas e saidas de dados
+Data: 25/02/26
+Autor: Leandro
+Versão: 1.0
+*/
+
 const readline = require('readline')
 const validacoes = require('../validacoes-gerais') 
 const calcularFatorial = require('./modulo-04/fatorial')

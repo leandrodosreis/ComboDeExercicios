@@ -13,6 +13,7 @@ function listarPares(inicial, final){
 
     for(let numero = inicial; numero <= final; numero++){
 
+        //UTILIZANDO A PORCENTAGEM PARA DIVIDIR (COMENTANDO POIS É UMA TECNOLOGIA NÃO PASSADA EM SALA)
         if(numero % 2 == 0){
             console.log(numero)
             qtdPares++

@@ -1,3 +1,10 @@
+/*
+Objetivo: Arquivo responsavel SOMENTE pelas entradas e saidas de dados
+Data: 25/02/26
+Autor: Leandro
+Versão: 1.0
+*/
+
 const readline = require('readline')
 const validacoes = require('../validacoes-gerais') 
 const calculos = require('./modulo-02/mediasEscolares')
@@ -46,7 +53,8 @@ entrada.question("Nome do aluno: ", function(nomeAluno){
                                         let media = calculos.calcularMedia(n1,n2,n3,n4)
 
                                         let status = calculos.verificarStatus(media)
-
+                                            
+                                            //Fazendo entrada do Exame
                                             if(status == "exame"){
 
                                                 entrada.question("Nota do exame: ", function(exame){
@@ -57,6 +65,7 @@ entrada.question("Nome do aluno: ", function(nomeAluno){
 
                                                     console.log("\nRelatório do aluno")
 
+                                                    //Perguntando sexo do aluno e professor 
                                                     let aluno = sexoAluno == "F" ? "A aluna" : "O aluno"
                                                     let professor = sexoProfessor == "F" ? "Professora" : "Professor"
 

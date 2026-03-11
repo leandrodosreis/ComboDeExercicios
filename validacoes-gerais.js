@@ -1,3 +1,12 @@
+/*
+Objetivo: Arquivo responsavel SOMENTE pelas VALIDAÇÕES
+    OBS: Não comentarei oque cada validação faz pois esta nos console log dos Erros
+Data: 11/03/26
+Autor: Leandro
+Versão: 1.0
+*/
+
+//Essa validação serve para evitar repetições no codigo
 function validacoes(...valores){
 
     for(let valor of valores){
@@ -17,6 +26,7 @@ function validacoes(...valores){
     return true
 }
 
+//Validações do IMC
 function validacaoEspecificaImc(...valores){
 
     //O imc era o unico exercicio que não havia validação nos requisitos 
@@ -40,7 +50,7 @@ function validacaoEspecificaImc(...valores){
     return true
 }
 
-
+//Validações da Media
 function validacaoEspecificaMedias(
     nomeAluno,
     nomeProfessor,
@@ -77,6 +87,7 @@ function validacaoEspecificaMedias(
     return true
 }
 
+//Validações da Tabuada
 function validacaoEspecificaTabuada(tabInicial, tabFinal, contInicial, contFinal){
     if(tabInicial < 2 || tabInicial > 100){
         console.log("*ERRO: Tabuada inicial deve estar entre 2 e 100*")
@@ -111,6 +122,7 @@ function validacaoEspecificaTabuada(tabInicial, tabFinal, contInicial, contFinal
     return true
 }
 
+//Validações do Fatorial
 function validacaoEspecificaFatorial(fatorial){
 
     if(fatorial <= 0){
@@ -120,6 +132,7 @@ function validacaoEspecificaFatorial(fatorial){
     return true
 }
 
+//Validações do impar ou par
 function validacaoEspecificaImpaPar(inicial, final){
 
     inicial = Number(inicial)
