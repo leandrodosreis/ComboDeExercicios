@@ -5,14 +5,57 @@ Autor: Leandro
 Versão: 1.0
 */
 
-const imparesEPares = function(valorInicial, valorFinal){
+function listarPares(inicial, final){
 
-    while(valorInicial < valorFinal){
-        valorInicial + 2
-        valorFinal = valorInicial + 1
+    let qtdPares = 0
+
+    console.log("Lista de números Pares")
+
+    for(let numero = inicial; numero <= final; numero++){
+
+        if(numero % 2 == 0){
+            console.log(numero)
+            qtdPares++
+        }
 
     }
 
+    console.log("Qtde de números encontrados:", qtdPares)
+
 }
 
-imparesEPares(2, 10)
+function listarImpares(inicial, final){
+
+    let qtdImpares = 0
+
+    console.log("Lista de números Impares")
+
+    for(let numero = inicial; numero <= final; numero++){
+
+        if(numero % 2 != 0){
+            console.log(numero)
+            qtdImpares++
+        }
+
+    }
+
+    console.log("Qtde de números encontrados:", qtdImpares)
+
+}
+
+function calcularParesImpares(inicial, final){
+
+    inicial = Number(inicial)
+    final = Number(final)
+
+    listarPares(inicial, final)
+
+    console.log("----------------")
+
+    listarImpares(inicial, final)
+
+}
+
+module.exports = {
+    calcularParesImpares
+}

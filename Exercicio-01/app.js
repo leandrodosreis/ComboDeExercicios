@@ -6,7 +6,7 @@ Versão: 1.0
 */
 
 const readline = require('readline')
-const validacoes = require('./modulo-01/validacao.js') 
+const validacoes = require('../validacoes-gerais')
 const calcularIMC  = require('./modulo-01/calculoIMC.js')
 
 const entradaDeDados = readline.createInterface({
@@ -20,7 +20,7 @@ entradaDeDados.question("Digite o seu peso: ", function(peso){
 
     entradaDeDados.question("Digite o sua altura: ", function(altura){
     
-        let verificacaoValidacao = validacoes.validacoes(peso, altura)
+        let verificacaoValidacao = validacoes.validacaoEspecificaImc(peso, altura)
 
         if(verificacaoValidacao){
             let calcular = calcularIMC.calcularIMC(peso, altura)
@@ -28,7 +28,7 @@ entradaDeDados.question("Digite o seu peso: ", function(peso){
             entradaDeDados.close()
             
         }else{
-            return false
+            entradaDeDados.close()
         }
 
     })

@@ -13,14 +13,15 @@ const entradaDeDados = readline.createInterface({
 entradaDeDados.question("Digite o fatorial: ", function(fatorial){
     
     let verificacaoValidacao = validacoes.validacoes(fatorial)
-
     if(verificacaoValidacao){
-        let calcular = calcularFatorial.calcularFatorial(fatorial)
-        console.log(calcular)
-        entradaDeDados.close()
+
+        let validacaoFatorial = validacoes.validacaoEspecificaFatorial(fatorial)
+        if(validacaoFatorial){
             
-    }else{
-        return false
-    }
+        let calcular = calcularFatorial.calcularFatorial(fatorial)
+        console.log(calcular)}
+        
+            
+    }entradaDeDados.close()
 
 })

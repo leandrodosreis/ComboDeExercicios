@@ -16,17 +16,16 @@ entradaDeDados.question("Digite tabuada inicial: ", function(tabInicial){
 
             entradaDeDados.question("Digite o contador final: ", function(contFinal){
 
-            let verificacaoValidacao = validacoes.validacoes(tabInicial, tabFinal, contInicial, contFinal)
+                let validacaoGeral = validacoes.validacoes(tabInicial, tabFinal, contInicial, contFinal)
 
-            if(verificacaoValidacao){
-                let calcular = calcularTabuada.calcularTabuada(tabInicial, tabFinal, contInicial, contFinal)
-                console.log(calcular)
-                entradaDeDados.close()
-            
-            }else{
-                return false
-            }
+                if(validacaoGeral){
 
+                    let validacaoTabuada = validacoes.validacaoEspecificaTabuada(tabInicial, tabFinal, contInicial, contFinal)
+
+                    if(validacaoTabuada){
+                        let calcular = calcularTabuada.calcularTabuada(tabInicial, tabFinal, contInicial, contFinal)
+                    }
+                }entradaDeDados.close()
             })
         })
     })

@@ -1,20 +1,95 @@
 const readline = require('readline')
+const validacoes = require('../validacoes-gerais') 
+const calculos = require('./modulo-02/mediasEscolares')
 
-const entradaDeDados = readline.createInterface({
+const entrada = readline.createInterface({
     input: process.stdin,
     output: process.stdout
-
 })
 
-let nota1 = 3
-let nota2 = 3
-let nota3 = 3
-let nota4 = 3
+entrada.question("Nome do aluno: ", function(nomeAluno){
 
-let calculo = require('./modulo-02/mediasEscolares')
+    entrada.question("Sexo do aluno (M/F): ", function(sexoAluno){
+        sexoAluno = sexoAluno.trim().toUpperCase()
 
-let media = calculo.calcularMedia(nota1, nota2, nota3, nota4)
+        entrada.question("Nome do professor: ", function(nomeProfessor){
 
-if(media){
-    console.log(`O aluno [ xxxxxx ] foi [aprovado] na disciplina [ xxxxxxxx ]. Curso: xxxxxxxx Professor: xxxxxxxx Notas do aluno: ${nota1}, Nota2, Nota3, Nota4, Nota do Exame Média Final: xxxxxx Média final do Exame: xxxx`)}
-            
+            entrada.question("Sexo do professor (M/F): ", function(sexoProfessor){
+                sexoProfessor = sexoProfessor.trim().toUpperCase()
+                
+                entrada.question("Curso: ", function(curso){
+
+                    entrada.question("Disciplina: ", function(disciplina){
+
+                        entrada.question("Nota 1: ", function(n1){
+                            n1 = Number(n1)
+
+                            entrada.question("Nota 2: ", function(n2){
+                                n2 = Number(n2)
+
+                                entrada.question("Nota 3: ", function(n3){
+                                    n3 = Number(n3)
+
+                                    entrada.question("Nota 4: ", function(n4){
+                                        n4 = Number(n4)
+                                        
+                                        if(validacoes.validacaoEspecificaMedias(
+                                        nomeAluno,
+                                        nomeProfessor,
+                                        sexoAluno,
+                                        sexoProfessor,
+                                        curso,
+                                        disciplina,
+                                        n1,n2,n3,n4
+                                        )){
+
+                                        let media = calculos.calcularMedia(n1,n2,n3,n4)
+
+                                        let status = calculos.verificarStatus(media)
+
+                                            if(status == "exame"){
+
+                                                entrada.question("Nota do exame: ", function(exame){
+
+                                                    exame = Number(exame)
+
+                                                    let statusExame = calculos.calcularMediaExame(media, exame)
+
+                                                    console.log("\nRelatório do aluno")
+
+                                                    let aluno = sexoAluno == "F" ? "A aluna" : "O aluno"
+                                                    let professor = sexoProfessor == "F" ? "Professora" : "Professor"
+
+                                                    console.log(`${aluno} ${nomeAluno} foi ${statusExame} na disciplina ${disciplina}`)
+                                                    console.log("Curso:", curso)
+                                                    console.log(`${professor}:`, nomeProfessor)
+                                                    console.log("Notas:", n1,n2,n3,n4,"Exame:",exame)
+                                                    console.log("Média inicial:", media)
+
+                                                entrada.close()
+                                                })
+                                            }else{
+
+                                                let aluno = sexoAluno == "F" ? "A aluna" : "O aluno"
+                                                let professor = sexoProfessor == "F" ? "Professora" : "Professor"
+
+                                                console.log("\nRelatório do aluno")
+                                                console.log(`${aluno} ${nomeAluno} foi ${status} na disciplina ${disciplina}`)
+                                                console.log("Curso:", curso)
+                                                console.log(`${professor}:`, nomeProfessor)
+                                                console.log("Notas:", n1,n2,n3,n4)
+                                                console.log("Média Final:", media)
+
+                                                entrada.close()
+                                            }
+                                        }
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+})
